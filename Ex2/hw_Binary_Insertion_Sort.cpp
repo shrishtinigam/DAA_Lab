@@ -1,8 +1,11 @@
 /*
     Binary Search -
     We have to return the location where the required element is to be placed. 
-    Normally in binary search, for the r < l condition, we return -1, indicating the required element was not found. 
-    But here when we reach this condition, it means the new element is to be added at l or l + 1. If the element is found in the array, then we simply insert it next to that element. 
+    Normally in binary search, for the end < start condition, we return -1, indicating 
+    the required element was not found. 
+    But here when we reach this condition, it means the new element is to be added at 
+    start or start + 1. If the element is found in the array, then we simply insert it 
+    next to that element. 
 
     We only search in the sorted part of the array.
 
@@ -12,12 +15,18 @@
     3.       if s > elements[low]
     4.            return low + 1
     5.       return low
-    6. if s == elements[mid]
-    7.      return mid + 1
+    6. if s == elements[mid]  // element already in array
+    7.      return mid + 1 
     8. else if s < elements[mid]
     9.      return binary_search_pos(elements, low, mid - 1, s)
     10. return binary_search_pos(elements, mid + 1, high, s)
+
+    Insertion Sort -
+    In regular insertion sort, we have an inner while loop with runs till elements[i] > key. 
+    This, in the worst case, an O(n) operation. Instead, we use binary search to directly find 
+    the required position, reducing the time complexity of this operation to O(log n).
 */
+
 #include<iostream>
 #include<vector>
 using namespace std;
