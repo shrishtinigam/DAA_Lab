@@ -64,11 +64,9 @@ void merge(vector<int> &elements, int left, int mid, int right)
     
     for(int i = left; i < Sub_Array.size(); i++)
     {
-        cout << Sub_Array[count] << " ";
         elements[i] = Sub_Array[count];
         count++;
     }
-    cout << "\n";
 }
 void mergesort(vector<int> &elements, int left, int right)
 {
@@ -97,11 +95,8 @@ int main()
 	}
 	clock_t tStart = clock();
 	mergesort(elements, 0, n-1);
-    merge(elements,0, n/2, n-1);
-    merge(elements,0, n/2, n-1);
-    merge(elements,0, n/2, n-1);
 	double time1=(double)(clock() - tStart)/CLOCKS_PER_SEC;
-	//cout<<"Time taken is "<<time1<<endl;
+	cout<<"Time taken is "<<time1<<endl;
 	for(i=0;i<n;i++)
 	{
 		cout<<elements[i]<<" ";
