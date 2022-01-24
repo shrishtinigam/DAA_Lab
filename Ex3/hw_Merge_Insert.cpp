@@ -37,36 +37,18 @@ using namespace std;
 void merge(vector<int> &elements, int left, int mid, int right)
 {	
     //insert the elements in the right part into the left part
-    vector<int> Sub_Array;
-    int no_Left_Sub, no_Right_Sub, index_Full_Array;
-	no_Left_Sub = mid-left+1;
-	no_Right_Sub = right-mid;
-	// make a copy of left sub array in a temporary array
-	for(int i=0;i<no_Left_Sub;i++)
-		Sub_Array.push_back(elements[left+i]);
-    	// Position the indices for the three arrays rightly
-    // Here we perform insertion. We find the appropriate position for each element of the right subarray in the left subarray and insert it.
-    // Here at first we have the sorted left subarray.
-    int j = 0;
-    for(int i = 0; i < no_Right_Sub; i++)
-    {
-        int key = elements[mid+i+1];
-        while(j <= right-left && elements[j] < key)
-        {
-            j++;
-        }
-        Sub_Array.push_back(0);
-        for(int k = Sub_Array.size(); k> j; k--)
-            Sub_Array[k] = Sub_Array[k - 1];
-        Sub_Array[j] = key;
-    }
-    int count = 0;
-    
-    for(int i = left; i < Sub_Array.size(); i++)
-    {
-        elements[i] = Sub_Array[count];
-        count++;
-    }
+    int j, i, key;
+	for(j = mid + 1; j <= right; j++)
+	{
+		key = elements[j];
+		i = j - 1;
+		while((i >= left) && (elements[i]>key))
+		{
+			elements[i+1] = elements[i];
+			i = i - 1;
+		}
+		elements[i+1] = key;
+	}
 }
 void mergesort(vector<int> &elements, int left, int right)
 {
