@@ -1,0 +1,43 @@
+Selection sort technique has the core idea of choosing the apt element for the ith position. This technique will be having 'i' sorted elements 
+from the beginning of the array after 'i' iterations. In each iteration, this technique basically find the minimum element from the unsorted array. 
+Bidirectional Selection sort is a variation of selection sort which sort the elements from both the directions. We will have two indices pointing 
+to the extreme ends and we move them in opposite direction till they cross each other. The algorithm works as below:
+
+1. Let i = 1 and j = n
+
+2. Repeat step 2 to 10 when i < j
+
+3. Initialize min = max = ith element
+
+4. Initialize min_index and max_index to i
+
+5. Let k = i
+
+6. while k<=j do steps 7 and 8
+
+7. if element in kth position is greater than max then make max as kth element and max_index as k
+
+8. Else if the element in kth position is less than max then make min as kth element and min_index as k
+
+9. swap element at ith position and min
+
+10. swap eleeent at jth position and max
+
+Consider a vector of student records as shown in the post code and sort them based on roll no using Bidirectional Selection sort. 
+Understand the precode of Bidirectional Selection sort given and complete
+
+Note:
+
+1. Use getline(cin,s) to read string in this code
+
+2. Use cin.ignore()  to clear one or more characters from the input buffer if normal cin was used to read previous input
+
+Input Format
+
+First line cotains the number of students, n
+
+Next 3*n lines contain details of students in the order name, rollno and marks of each student
+
+Output Format
+
+Print details of students sorted as per rollnp in ascending order print name, rollno and marks of each student in order
