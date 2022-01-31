@@ -48,15 +48,20 @@ square_matrix_add_recursive(matrix m1, matrix m2, matrix m3, i, j, n)
     square_matrix_add_recursive(m1,m2,m3,i,j+n/2,n/2)   // 21 matrix addition
     square_matrix_add_recursive(m1,m2,m3,i+n/2,j+n/2,n/2)  // 22 matrix addition
 
-Matrix addition consists of simply adding respective elements in both the matrices. Matrices have to be of the same dimensions. We can do this recursively for a square matrix of dimensions n x n where n = 2^k. We divide the matrix into four parts and add those parts separately.
+Matrix addition consists of simply adding respective elements in both the matrices. 
+Matrices have to be of the same dimensions. We can do this recursively for a square
+matrix of dimensions n x n where n = 2^k. We divide the matrix into four parts and 
+add those parts recursively. The base case is when n = 1, where we just add the one 
+element in the 1x1 matrix.
 
 Excel sheet with comparison between recursive and conventional method runtimes is here along with code - 
-
+https://github.com/shrishtinigam/DAA_Lab/tree/main/Ex4_ch/Matrix_Addition
 */
 
 #include<iostream>
 using namespace std;
 #include<vector>
+#include<ctime>
 void read_matrix(vector<vector<int> >&mat,int n)
 {
     int i,j,ele;
@@ -105,7 +110,7 @@ int main()
 	clock_t tStart = clock();
    square_matrix_add_recursive(mat1,mat2,mat3,0,0,n);
 	double time1=(double)(clock() - tStart)/CLOCKS_PER_SEC;
-//	cout<<"Time taken is "<<time1<<endl;
+    cout<<"Time taken is "<<time1<<endl;
 
    print_matrix(mat3);
 }
