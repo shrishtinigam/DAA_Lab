@@ -1,3 +1,4 @@
+// naive_max_sub_array.cpp
 #include<iostream>
 using namespace std;
 #include<vector>
@@ -15,21 +16,21 @@ details find_maximum_subarray(vector<int> a)
     details d;
     max_sum = INT_MIN;
     n = a.size();
-    for(i=0;i<n;i++)
+    for(i = 0; i < n; i++)
     {
         curr_sum = a[i];
         // size of sub_array is 1 and ith element is part of it
-        if(curr_sum>max_sum)
+        if(curr_sum > max_sum)
         {
             max_sum = curr_sum;
             max_left = i;
             max_right = i;
         }
         // size of subarray will be from 2 to n - i and ith element is part of it
-        for(j=i+1;j<n;j++)
+        for(j = i + 1; j < n; j++)
         {
             curr_sum += a[j];
-            if(curr_sum>max_sum)
+            if(curr_sum > max_sum)
             {
                 max_sum = curr_sum;
                 max_left = i;
@@ -45,15 +46,15 @@ details find_maximum_subarray(vector<int> a)
 int main()
 {
     vector<int> A;
-    int low,high,n,i,ele;
+    int low, high, n, i, ele;
     details ans;
-    cin>>n;
-    for(i=0;i<n;i++)
+    cin >> n;
+    for(i = 0; i < n; i++)
     {
-        cin>>ele;
+        cin >> ele;
         A.push_back(ele);
     }
-    cout<<"Finished IP";
+    cout << "Finished IP\n";
     ans = find_maximum_subarray(A);
-    cout<<ans.low<<" "<<ans.high<<" "<<ans.sum<<endl;
+    cout << ans.low << " " << ans.high << " " << ans.sum << endl;
 }
