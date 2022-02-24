@@ -1,3 +1,4 @@
+// 6_rod_cut_print_sizes.cpp , also the answer to a Vpropel problem
 #include<iostream>
 using namespace std;
 #include<vector>
