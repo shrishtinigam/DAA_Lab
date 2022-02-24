@@ -57,7 +57,7 @@ int main()
 }
 
 /*
-Code that was submitted, above code was improved
+Code that was submitted, above code is improved
 
 #include<iostream>
 using namespace std;
