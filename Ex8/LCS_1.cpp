@@ -1,3 +1,4 @@
+// Tries to solve q 5 from pdf
 #include<iostream>
 using namespace std;
 #include<limits.h>
@@ -74,7 +75,7 @@ int main()
     vector<vector<int> > c(x.length()+1,vector<int>(y.length()+1,0));
     vector<vector<char> > b(x.length()+1,vector<char>(y.length()+1,'x'));
     lcs_length(x,y,c,b);
-print_LCS(b,c,x,x.length(),y.length(),c[x.length()][y.length()],op,subsequences);
+    print_LCS(b,c,x,x.length(),y.length(),c[x.length()][y.length()],op,subsequences);
     for (auto it = subsequences.begin(); it != subsequences.end(); it++)
         cout << *it << endl;
 }

@@ -50,6 +50,7 @@ int main()
     cout<<lcs(x,y,x.length(),y.length());
 }
 */
+// maintain only length table
 #include <iostream>
 #include<string>
 #include<vector>
@@ -68,11 +69,11 @@ void printLCS( string s1, string s2, int m, int n )
      for (int j=0; j<=n; j++)
      {
        if (i == 0 || j == 0)
-         L[i][j] = 0;
+            L[i][j] = 0;
        else if (s1[i-1] == s2[j-1])
-         L[i][j] = L[i-1][j-1] + 1;
+            L[i][j] = L[i-1][j-1] + 1;
        else
-         L[i][j] = max(L[i-1][j], L[i][j-1]);
+            L[i][j] = max(L[i-1][j], L[i][j-1]);
      }
      }
    int index = L[m][n];
@@ -83,18 +84,18 @@ void printLCS( string s1, string s2, int m, int n )
    while (i > 0 && j > 0)
    {
      
-      if (s1[i-1] == s2[j-1])
-      {
-          LCS[index-1] = s1[i-1];
-          i--; j--; index--;     
-      }
+        if (s1[i-1] == s2[j-1])
+        {
+            LCS[index-1] = s1[i-1];
+            i--; j--; index--;     
+        }
 
-      else if (L[i-1][j] >= L[i][j-1])
-         i--;
-          else
-         j--;
+        else if (L[i-1][j] >= L[i][j-1])
+            i--;
+        else
+            j--;
    }
-   cout<< LCS<<endl;
+   cout << LCS << endl;
 }
 int main()
 {
